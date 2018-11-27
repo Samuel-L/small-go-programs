@@ -24,9 +24,6 @@ func NewEpisode(w http.ResponseWriter, r *http.Request) {
 	var req request
 	json.NewDecoder(r.Body).Decode(&req)
 
-	fmt.Printf("ID: %d\n", req.ID)
-	fmt.Println("request received")
-
 	url := helpers.ParseTvMazeUrl(req.ID)
 	fetchedEpisodes, err := fetchEpisodes(url)
 	if err != nil {
